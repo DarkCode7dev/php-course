@@ -1,0 +1,20 @@
+============================page1.php============
+<?php
+//create page1 for set cookie
+setcookie("Userid","FB123",time()+3600);
+?>
+==========================page2.php==================
+<?php//create page2 for checking cookie
+if(isset($_COOKIE["Userid"]))
+{
+    echo "You are logged in";
+}
+ else {
+    echo "Cookie not set";    
+}
+?>
+=========================page3.php===================
+<?php//create page3 to kill cookie
+setcookie("Userid","FB123",time()-1);
+?>
+========================================================
