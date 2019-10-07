@@ -1,0 +1,25 @@
+========================page1==================
+<?php
+
+session_start();
+$_SESSION["Userid"]="FB123";
+?>
+==========================page2===========================
+<?php
+session_start();
+if(isset($_SESSION["Userid"]))
+{
+    echo $_SESSION["Userid"];
+}
+ else {
+    echo "Session not set";    
+}
+?>
+
+===================page3========================
+<?php
+session_start();
+session_destroy();
+?>
+==================comment================
+session is usually stored in server
