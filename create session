@@ -1,0 +1,34 @@
+===============================page1===============
+<?php
+
+session_start();
+$_SESSION["Userid"]="FB123";
+?>
+==============================page2================
+<?php
+session_start();
+if(isset($_SESSION["Userid"]))
+{
+    echo "You are logged in";
+}
+ else {
+    echo "Session not set";    
+}
+?>
+
+========================page3====================
+<?php
+session_start();
+session_destroy();
+?>
+========================================================comments===========================
+session is easily started by making a call to the session_start() function.This function first checks if a session is already started
+and if none is started then it starts one. It is recommended to put the call to session_start() at the beginning of the page.
+
+Make use of isset() function to check if session variable is already set or not.
+
+
+PHP session can be destroyed by session_destroy() function. This function does not need any argument and a single call can destroy all 
+the
+session variables. If you want to destroy a single session variable then you can use unset() function to unset a session variable.
+
