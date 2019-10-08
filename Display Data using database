@@ -1,0 +1,29 @@
+=================================form.php===============================
+<form action="formhandler.php" method="POST" enctype="multipart/form-data">
+    <input type="text" name="userid" value=""  placeholder="userid" required/>
+    <input type="password" name="password" value="" placeholder="password" required />
+    
+    <input type="submit" value="Submit" />
+    
+    
+</form>
+  =========================formhandler.php======================
+  <?php
+$userid = $_POST['userid'];
+$password = $_POST['password'];        
+$link =  mysqli_connect("localhost","root","","dac2");
+$query = "insert into Login values('$userid','$password')";
+mysqli_query($link, $query);
+echo "Data inserted successfull";
+============================display.php===============================
+<?php
+//connection will be same because we have to connect to same database
+$link =  mysqli_connect("localhost","root","","dac2");
+$query = "select * from login";//to get the data
+$result=mysqli_query($link, $query);//to get the result
+while($row =mysqli_fetch_array($result))
+{
+    print_r($row);
+    echo "<br/";
+}
+?>
