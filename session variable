@@ -1,0 +1,20 @@
+=============check.php================
+<?php
+session_start();
+$_SESSION["username"]="Devesh";
+echo $_SESSION["username"];
+?>
+===============check1.php===================
+<?php
+session_start();
+echo $_SESSION["username"];
+?>
+=================check2.php=====================
+<?php
+session_start();
+echo $_SESSION["username"];
+//session_destroy();
+
+?>
+==================comment===========================
+session variable are asseccible to all pages
