@@ -1,4 +1,4 @@
-error in this code=
+we have to create folder of files name before
 ====================================form1.php=======================================
 <form action = "formhandler.php" method = "POST" enctype = "multipart/form-data">
     <input type = "text" name = "userid" value = "" placeholder="userid" required/>
