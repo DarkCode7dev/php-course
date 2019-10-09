@@ -6,3 +6,4 @@ compile-time polymorphisms are implemented in C++?  Using Templates
   Operator overloading
   
   pure virtual function in a class
+  virtual inheritance?C++ technique to avoid multiple copies of the base class into children/derived class
