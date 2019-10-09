@@ -1,0 +1,34 @@
+<form method = "POST" enctype = "multipart/form-data">
+    UserId:<input type="text" name="userid" value="" />
+    <br/> Password:<input type="text" name="password" value="" />
+    
+   <br/> <input type="submit" value="Login" />
+    
+    
+    
+</form>
+<?php
+if(isset($_POST['userid']))
+{
+    $link= mysqli_connect("localhost","root","","dac");
+    $userid = mysqli_escape_string($link,$_POST['userid']);
+    $password= mysqli_escape_string($link,$_POST['password']);
+    //$userid= $_POST['userid'];
+   // $password=$_POST['password'];
+    
+    $query ="select * from login_detail where Name ='$userid' and Password ='$password'";
+    echo $query;
+    echo "<br/>";
+    
+    $result= mysqli_query($link,$query);
+     
+    if(mysqli_num_rows($result)){
+        echo "Login Successful";
+    }
+    else {
+        echo "Login unsuccessful!";    
+    }
+    
+}
+
+?>
