@@ -1,0 +1,45 @@
+===================a1.php======================
+
+<form action = "a2.php" method = "POST">
+    
+    <label>NAME: </label>
+    <input type="text" name="name" value="" placeholder="ENTER NAME" />
+    <label>EMAIL: </label>
+    <input type="email" name="EMAIL" value="" placeholder="ENTER EMAIL" />
+    <input type="password" name="password" value="" placeholder="ENTER PASSWORD" />
+    <input type="submit" value="Login" name="SU" />
+     
+    
+</form>
+==============================a2.php========================
+<?php
+session_start();
+$_SESSION['user']=$_POST['name'];
+$_SESSION['EMAIL']=$_POST['EMAIL'];
+echo 'Login Successful'; 
+?>
+
+<form action="a3.php" method="POST">
+    <input type="submit" value="go" name="submit" />
+    
+    
+</form>
+=======================a3.php================================
+<?php
+session_start();
+echo 'HELLO';
+echo $_SESSION['user'];
+?>
+
+<form action="a4.php" method="POST">
+    <input type="submit" value="LOGOUT" />
+    
+</form>
+=========================a4.php==============================
+<?php
+session_start();
+session_destroy();
+echo 'Logged Out';
+?>
+======================comment======================
+without using database
