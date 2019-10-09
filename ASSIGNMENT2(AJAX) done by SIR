@@ -1,0 +1,58 @@
+===================================Ajax.php==========================================
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+<script>
+    function search()
+    {
+        val=$('#pattern').val();//pattern value will come in variable val
+        if(val.length>0)
+        {
+            $.post("Search.php",{"pattern":val},function(data){//sending data in Search.php// pattern val will go in val then it will go inSearch.php
+                $('#suggestion').html(data).show();
+            })            
+        }
+        else
+        {
+            $('#suggestion').hide();
+        }
+
+    }
+</script>
+<style>
+    li{
+        margin: 0;
+        padding: 5;
+        background-color: aqua;
+        list-style: none;
+    }
+    li:hover
+    {
+        background-color: pink;
+    }
+    ul
+    {
+        margin: 0;
+        padding: 0;
+    }
+    #suggestion
+    {
+        width:200px;
+        height: 200px;
+        display:none;
+        border: 2px solid blue;
+    }
+</style>
+<input id="pattern" type="text" name="search" onkeyup="search()">
+<div id="suggestion"></div>
+==================================Search.php====================================
+<?php
+$pattern=$_POST['pattern'];
+$link= mysqli_connect("localhost", "root", "", "dac");
+$query="select * from login_detail where Name like '%$pattern%'";
+$result= mysqli_query($link, $query);
+echo "<ul>";
+while($row= mysqli_fetch_assoc($result))
+{
+    echo "<li><img src='img/".$row['Name'].".jpg' width='30px' height='30px'>".$row['Name']."</li>";
+}
+echo "</ul>";
+?>
