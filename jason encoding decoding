@@ -1,0 +1,14 @@
+=================jason.php==============================================
+<?php
+//associative array
+$arr = array("Name"=>"Anoop","Empid"=>271343,"Mobile"=>array("7411","8880"));
+$json=json_encode($arr);//calling array into json
+echo $json;
+echo "<br/><br/>";
+$obj = json_decode($json); //Takes a JSON encoded string and converts it into a PHP variable.
+print_r($obj);
+echo "<br/><br/>";
+//creates standard class object
+echo $obj->Empid;//to access property we use arrow operrator
+echo "<br/><br/>";
+echo $obj->Mobile[1];//since 
