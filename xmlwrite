@@ -1,4 +1,5 @@
 =============xmlwrite makes xml file using database==================
+=============================xmlwrite.php=====================
 <?php
 //it convert every xml element into a object of simple xml element so for creation we will also use same
 $xml =new SimpleXMLElement("<dac/>");//WE WILL INITIALIZE WITH THE ROOT ELEMENT(DAC)
