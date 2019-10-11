@@ -1,0 +1,20 @@
+=============xmlwrite makes xml file using database==================
+<?php
+//it convert every xml element into a object of simple xml element so for creation we will also use same
+$xml =new SimpleXMLElement("<dac/>");//WE WILL INITIALIZE WITH THE ROOT ELEMENT(DAC)
+
+// we can create login but we need all data from databases //so for that we use mysql connection
+$link = mysqli_connect("localhost","root","", "dac");
+$query="select * from login_detail";
+$result= mysqli_query($link, $query);
+while($row=mysqli_fetch_assoc($result))
+{//we have to put data into simple xml element so for that 
+    //for each row we need to create login
+    $login= $xml->addChild("login_detail");
+    $login->addChild("Name",$row['Name']);
+    $login->addChild("Password",$row['Password']);
+    
+    
+    
+}
+$xml->saveXML("login_detail.xml");
